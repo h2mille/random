@@ -26,26 +26,26 @@ void print_led(int number){
   switch(number)
   {
     case 1:
-	  led=0b1000;
+    led=0b1000;
       break;
     case 2:
-	  led=0b0001;
+    led=0b0001;
       break;
     case 3:
-	  led=0b1100;
+    led=0b1100;
       break;
     case 4:
-	  led=0b1010;
+    led=0b1010;
       break;
     case 5:
-	  led=0b1101;
+    led=0b1101;
       break;
     case 6:
-	  led=0b0111;
+    led=0b0111;
       break;
     case 0:
-	default:
-	  led=0b0;
+  default:
+    led=0b0;
       break;
   }
   //un peu sioux: on compare le n-ième bit pour la n-ième led.
@@ -73,7 +73,7 @@ void setup ()
 
 // ----- ACTIONS A EFFECTUER ------
 void loop()
-{	
+{  
   // On vérifie l'état du capteur d'inclinaison
   int buttonState;
   // Variable pour le random de l'animation 
@@ -85,25 +85,25 @@ void loop()
 
   buttonState = digitalRead(buttonPin);
   if (buttonState == LOW){ // Si on bouge le dé
-	// Animation pour 8 affichages de dé avec 200 ms entre chaque
-	  for (int i=0; i <= 7; i++){ 
-		last=8
-		ranim = random(1, 6); // on effectue un random pour chaque affichage
-		if(ranim>=last)
-		  ranim++;
-		last = ranim; // On stock le chiffre pour éviter d'afficher les 2 mêmes valeurs de dé pendant l'animation
-		print_led(ranim);
-		delay(200); // Pause entre l'affichage de l'animation : 200ms led éteintes
-		print_led(0);
-		delay(50);
-	  }
-	  
-	// RANDOM DU RESULTAT FINAL
-		ran = random(1, 7);
-		print_led(ran);
-		relay (TIME);
-	// On éteint tout pour pouvoir relancer le dé
-	  print_led(0);
+  // Animation pour 8 affichages de dé avec 200 ms entre chaque
+    for (int i=0; i <= 7; i++){ 
+    last=8
+    ranim = random(1, 6); // on effectue un random pour chaque affichage
+    if(ranim>=last)
+      ranim++;
+    last = ranim; // On stock le chiffre pour éviter d'afficher les 2 mêmes valeurs de dé pendant l'animation
+    print_led(ranim);
+    delay(200); // Pause entre l'affichage de l'animation : 200ms led éteintes
+    print_led(0);
+    delay(50);
+    }
+    
+  // RANDOM DU RESULTAT FINAL
+    ran = random(1, 7);
+    print_led(ran);
+    relay (TIME);
+  // On éteint tout pour pouvoir relancer le dé
+    print_led(0);
   }
   
   delay(100);
