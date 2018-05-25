@@ -26,29 +26,29 @@ void print_led(int number){
   switch(number)
   {
     case 1:
-    led=0b1000;
+      led=0b1000;
       break;
     case 2:
-    led=0b0001;
+      led=0b0001;
       break;
     case 3:
-    led=0b1100;
+      led=0b1100;
       break;
     case 4:
-    led=0b1010;
+      led=0b1010;
       break;
     case 5:
-    led=0b1101;
+      led=0b1101;
       break;
     case 6:
-    led=0b0111;
+      led=0b0111;
       break;
     case 0:
-  default:
-    led=0b0;
-      break;
+    default:
+      led=0b0;
+        break;
   }
-  //un peu sioux: on compare le n-ième bit pour la n-ième led.
+  // on compare le n-ième bit pour la n-ième led.
   //ça donne 2 puissance n, qu'on décalle de n à droit.
   //Ainsi, on a 1 si le bit est à 1, 0 sinon.
   digitalWrite (pinLed1, (led&0b0001)>>0);
@@ -101,7 +101,7 @@ void loop()
   // RANDOM DU RESULTAT FINAL
     ran = random(1, 7);
     print_led(ran);
-    relay (TIME);
+    delay (TIME);
   // On éteint tout pour pouvoir relancer le dé
     print_led(0);
   }
